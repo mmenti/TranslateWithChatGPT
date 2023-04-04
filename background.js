@@ -52,6 +52,15 @@ async function sendToChatGPT(text) {
   });
 
   const data = await response.json();
-  return data.choices[0].text.trim();
+  if (
+    data.choices &&
+    data.choices.length > 0 &&
+    data.choices[0].text !== null &&
+    data.choices[0].text !== undefined
+  ) {
+    return data.choices[0].text.trim();
+  } else {
+    return 'We are sorry, we encountered an error.';
+  }
 }
 
