@@ -1,0 +1,40 @@
+.chatgpt-popup {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: #000000;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chatgpt-custom-alert {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 15px 35px 15px 20px; /* Increase padding-right */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: #000000;
+  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chatgpt-close-button {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust right position */
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  transform: translateY(-50%); /* Vertically center the button */
+}
