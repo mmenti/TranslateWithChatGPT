@@ -34,6 +34,14 @@ function getApiKey() {
   });
 }
 
+function getLangTo() {
+  return new Promise((resolve) => {
+    chrome.storage.sync.get(['langTo'], (result) => {
+      resolve(result.langTo || '');
+    });
+  });
+}
+
 async function sendToChatGPT(text) {
   const apiUrl = 'https://api.openai.com/v1/completions';
   const apiKey = await getApiKey();
@@ -41,7 +49,12 @@ async function sendToChatGPT(text) {
     return 'Please set your OpenAI API key in the extension settings.';
   }
 
-  const prompt = `Translate the following text into English: "${text}"`;
+  let langTo = await getLangTo();
+  if (!langTo || langTo == '') {
+    langTo = 'English';
+  }
+
+  const prompt = `Translate the following text into ${langTo}: "${text}"`;
 
   const response = await fetch(apiUrl, {
     method: 'POST',
